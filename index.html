@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hangman game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Hangman Game</h1>
+    <p>Find the hidden word - Enter a letter</p>
+    <div class="container">
+        <svg width="200" height="270">
+          <!-- 直线 -->
+          <line
+            x1="60"
+            y1="30"
+            x2="150"
+            y2="30"
+            stroke="lightgoldenrodyellow"
+            stroke-width="5"
+            stroke-linecap="round"
+          ></line>
+          <line
+            x1="60"
+            y1="30"
+            x2="60"
+            y2="260"
+            stroke="lightgoldenrodyellow"
+            stroke-width="5"
+            stroke-linecap="round"
+          ></line>
+          <line
+            x1="20"
+            y1="260"
+            x2="105"
+            y2="260"
+            stroke="lightgoldenrodyellow"
+            stroke-width="5"
+            stroke-linecap="round"
+          ></line>
+          <line
+            x1="150"
+            y1="30"
+            x2="150"
+            y2="62"
+            stroke="lightgoldenrodyellow"
+            stroke-width="5"
+            stroke-linecap="round"
+          ></line>
+        </svg>
+
+      <div class="wrong-letters">
+        Wrong
+        <p class="wrong-letter"></p>
+      </div>
+
+      <div class="word"></div>
+    </div>
+    <div class="game-over hidden">
+      <h2>Unfortunately you lost. 😕</h2>
+      <h3>...the word was oooo.</h3>
+      <button>Play again</button>
+    </div>
+    <div class="alert-message hidden-msg">
+      You already guessed this letter!
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

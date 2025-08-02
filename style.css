@@ -1,0 +1,100 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 90vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightslategray;
+  color: lightgoldenrodyellow;
+  position: relative;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.container {
+  width: 400px;
+  height: 320px;
+  position: relative;
+}
+svg {
+  position: absolute;
+}
+.wrong-letters {
+  text-align: right;
+}
+.word {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;   /* 居中 */
+  transform: translateX(-50%); /* 水平居中修正 */
+  gap: 10px;
+}
+.letter{
+  border-bottom: 3px solid rgb(255, 255, 137);
+  width: 20px;
+  text-align: center;
+  font-size: 24px;
+  margin: 2px;
+}
+
+.game-over {
+  width: 340px;
+  height: 180px;
+  background-color: #ff9900;
+  box-shadow: 2px 2px 2px rgb(96, 96, 96);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top:280px;
+  border-radius: 5px;
+}
+.hidden {
+  display: none !important;
+}
+h2, h3 {
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  color: #ff9900;
+  border: none;
+  padding: 10px 17px;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.alert-message {
+  width: 400px;
+  height: 40px;
+  background-color: #9a9999;
+  position: absolute;
+  bottom: -50px;
+  border-radius: 5px;
+  font-size: 17px;
+  box-shadow: 2px 2px 3px rgb(141, 141, 141);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden-msg {
+  display: none !important;
+}
