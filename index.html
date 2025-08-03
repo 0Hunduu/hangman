@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman game</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -57,11 +58,15 @@
     </div>
     <div class="game-over hidden">
       <h2>Unfortunately you lost. 😕</h2>
-      <h3>...the word was oooo.</h3>
+      <h3>...the word was <span class="final-word"></span>.</h3>
       <button>Play again</button>
     </div>
     <div class="alert-message hidden-msg">
       You already guessed this letter!
+    </div>
+    <div class="win-message hidden-winmsg">
+      <h2>Congratulations, you won the game! 😆</h2>
+      <button>Play again</button>
     </div>
     <script src="script.js"></script>
   </body>

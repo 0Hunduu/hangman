@@ -1,7 +1,8 @@
 const wordContainer = document.querySelector(".word");
 const wrongLetters = document.querySelector(".wrong-letter");
 const svg = document.querySelector("svg");
-const button = document.querySelector("button");
+const buttons = document.querySelectorAll("button");
+const finalWord = document.querySelector(".final-word");
 
 const svgNS = "http://www.w3.org/2000/svg";
 
@@ -105,9 +106,16 @@ function getLetter(e) {
 
 // 游戏失败
 function gameOver() {
+  finalWord.innerText = word;
   document.querySelector(".game-over").classList.remove("hidden");
 }
 
+// 游戏成功
+function gameWon() {
+  document.querySelector(".win-message").classList.remove("hidden-winmsg");
+}
+
+// 重复点击同一字母
 function alertMessage() {
   const alertBox = document.querySelector(".alert-message");
   alertBox.classList.remove("hidden-msg");
@@ -134,8 +142,9 @@ function resetGame() {
   // 移除 hangman 小人
   document.querySelectorAll(".hangman-part").forEach((el) => el.remove());
 
-  // 隐藏 game over 提示
+  // 隐藏 game over or win 提示
   document.querySelector(".game-over").classList.add("hidden");
+  document.querySelector(".win-message").classList.add("hidden-winmsg");
 }
 
 // 键盘事件
@@ -149,15 +158,23 @@ document.addEventListener("keydown", (e) => {
   }
 
   if (array.includes(letter)) {
+    // 猜对了
     array.forEach((ch, index) => {
       if (ch === letter) display[index] = letter;
     });
-  } else if (!wrongLetter.includes(letter)) {
-    wrongLetter.push(letter);
-    wrongLetters.textContent = wrongLetter.join(", ");
 
-    if (wrongLetter.length === parts.length) {
-      gameOver();
+    if (display.join("") === word) {
+      gameWon();
+    }
+  } else {
+    // 猜错了
+    if (!wrongLetter.includes(letter)) {
+      wrongLetter.push(letter);
+      wrongLetters.textContent = wrongLetter.join(", ");
+
+      if (wrongLetter.length === parts.length) {
+        gameOver();
+      }
     }
   }
 
@@ -166,7 +183,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 // 点击按钮重置
-button.addEventListener("click", resetGame);
+buttons.forEach((button) => button.addEventListener("click", resetGame));
 
 // 初始化游戏
 resetGame();
